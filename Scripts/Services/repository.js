@@ -1,5 +1,5 @@
 ﻿(function() {
-	var repository = function($http) {
+	var repository = function($http,$q) {
 		var getAllChannels = function() {
 			return $http.get("http://dummyapi.kodalagom.se/api/channels")
 				.then(function(response) {
@@ -42,5 +42,5 @@
 		};
 	};
 	var module = angular.module("lerniaChat");
-	module.factory("repository", ["$http", repository]);
+	module.factory("repository", ["$http","$q", repository]);
 }());
