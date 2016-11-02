@@ -1,3 +1,25 @@
-﻿<div>
-	channel here
+﻿<div class="col col-md-3" style="background-color: red; height: 800px">
+	<ul>
+		<li ng-repeat="channel in channels"><a ng-click="getMessages(channel.id)">{{channel.name}}</a> - <a ng-click="deleteChannel(channel.id)">x</a></li>
+	</ul>
+	<form name="addchannel" ng-submit="addChannel(name)">
+		<input type="text" required placeholder="Add Channel" ng-model="name"/>
+		<input type="submit" value="Add Channel"/>
+	</form>
+</div>
+<div>
+	<table ng-show="messages">
+		<thead>
+		<tr>
+			<th style="padding-right: 10px;">Author</th>
+			<th>Message</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="message in messages">
+			<td>{{message.author}}</td>
+			<td>{{message.body}}</td>
+		</tr>
+		</tbody>
+	</table>
 </div>
