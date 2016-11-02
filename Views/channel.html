@@ -1,25 +1,34 @@
-﻿<div class="col col-md-3" style="background-color: red; height: 800px">
-	<ul>
-		<li ng-repeat="channel in channels"><a ng-click="getMessages(channel.id)">{{channel.name}}</a> - <a ng-click="deleteChannel(channel.id)">x</a></li>
-	</ul>
-	<form name="addchannel" ng-submit="addChannel(name)">
-		<input type="text" required placeholder="Add Channel" ng-model="name"/>
-		<input type="submit" value="Add Channel"/>
-	</form>
-</div>
-<div>
-	<table ng-show="messages">
-		<thead>
-		<tr>
-			<th style="padding-right: 10px;">Author</th>
-			<th>Message</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr ng-repeat="message in messages">
-			<td>{{message.author}}</td>
-			<td>{{message.body}}</td>
-		</tr>
-		</tbody>
-	</table>
+﻿<div>
+	<div class="col-md-2 channellist">
+		<ul class="list-group " style="list-style-type:none ">
+			<li class="list-group-item col-md-12" style="height:25px;padding: 0" ng-repeat="channel in channels">
+				<div class="col-md-10" style="float: left; height: 10px; cursor:pointer" ng-click="getMessages(channel.id)">{{channel.name}}</div>
+				<div class="btn-xs btn-danger glyphicon glyphicon-trash" style="float: right; cursor: pointer" ng-click="deleteChannel(channel.id)"></div>
+			</li>
+		</ul>
+		<form name="addchannel" class="addchannel" ng-submit="addChannel(name)">
+			<input type="text" required placeholder="Add Channel" ng-model="name" />
+			<input type="submit" value="Add Channel" />
+		</form>
+	</div>
+
+	<div class="col col-md-10">
+		<div class="col col-md-12 chatbox">
+			<table ng-show="messages" style="position:absolute;bottom:0;width:99%">
+				<tbody>
+					<tr ng-repeat="message in messages | orderBy:'timeSent'">
+						<td style="width:100%"><strong>{{formatTime(message.timeSent)+message.author}}</strong>{{':'+message.body}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<form style="float:left" class="col-md-12" ng-show="activeChannel" name="addmessage" ng-submit="addMessage(activeChannel,author,body)">
+			<input type="text" required placeholder="Author" class="col-md-2" ng-model="author" />
+			<input type="text" required placeholder="body" class="col-md-8" ng-model="body" />
+			<input type="submit" value="Add Message" />
+		</form>
+		</div>
+		
+
+
 </div>
