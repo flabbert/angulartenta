@@ -5,17 +5,17 @@
 				.then(function(response) {
 					return response.data;
 				});
-		}
+		};
 		var getMessages = function(id) {
 			return $http.get("http://dummyapi.kodalagom.se/api/channels/" + id)
-				.then(function (response) {
+				.then(function(response) {
 					return response.data;
 				});
-		}
-		var addChannel = function (name) {
+		};
+		var addChannel = function(name) {
 			var data = {
-				'name' : name,
-				'messages' : []
+				'name': name,
+				'messages': []
 			};
 			$http.post("http://dummyapi.kodalagom.se/api/channels", data)
 				.then(
@@ -26,7 +26,7 @@
 
 					}
 				);
-		}
+		};
 		var deleteChannel = function (id) {
 			$http.delete("http://dummyapi.kodalagom.se/api/channels/" + id)
 				.then(
