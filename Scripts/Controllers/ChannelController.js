@@ -6,12 +6,15 @@
 		$scope.name = null;
 		var getAllChannels = function() {
 			repository.getAllChannels()
-				.then(function(response) {
-					console.log(response);
-					$scope.channels = response;
-					$scope.$apply();
-				});
+				.then(onChannelLoad,onError);
 		};
+		var onChannelLoad = function (response) {
+		    $scope.channels = response;
+
+		};
+		var onError = function (response) {
+		    // do error shit in here ty great job many 
+		};  
 		$scope.getMessages = function(id) {
 			repository.getMessages(id)
 				.then(function (response) {
