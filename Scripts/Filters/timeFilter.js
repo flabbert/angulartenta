@@ -7,6 +7,5 @@
 		}
 	};
 	var module = angular.module("lerniaChat");
-	module.filter("timeFilter", timeFilter);
-
+	module.filter("timeFilter", ["time",timeFilter]);
 })();

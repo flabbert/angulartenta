@@ -17,7 +17,7 @@
 			<table ng-show="messages" style="position:absolute;bottom:0;width:99%">
 				<tbody>
 					<tr ng-repeat="message in messages | orderBy:'timeSent'">
-						<td style="width:100%"><strong>{{formatTime(message.timeSent)+message.author}}</strong>{{':'+message.body}}</td>
+						<td style="width:100%"><strong>{{message.timeSent | time }}{{message.author}}</strong>{{':'+message.body}}</td>
 					</tr>
 				</tbody>
 			</table>
@@ -28,8 +28,7 @@
 			<input type="submit" value="Add Message" />
 		</form>
 		</div>
-		
+
 
 
 </div>
-	

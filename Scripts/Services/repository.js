@@ -52,5 +52,6 @@
 		};
 	};
 	var module = angular.module("lerniaChat");
+  console.log(module);
 	module.factory("repository", ["$http", repository]);
 }());

@@ -1,6 +1,6 @@
 ﻿(function () {
 	var app = angular.module("lerniaChat");
-	var channelController = function ($scope, repository,$interval,$filter) {
+	var channelController = function ($scope, repository,$interval,$filter,timeFilter) {
 		$scope.channels = null;
 		$scope.messages = null;
 		$scope.name = null;
@@ -13,7 +13,7 @@
 			$scope.channels = response;
 		};
 		var onError = function (response) {
-		// do error shit in here ty great job many 
+		// do error shit in here ty great job many
 		};
 
 		var getAllChannels = function () {
@@ -62,5 +62,5 @@
 
 
 	};
-	app.controller("ChannelController", ["$scope","repository","$interval","$filter", channelController]);
+	app.controller("ChannelController", ["$scope","repository","$interval","$filter","timeFilter", channelController]);
 })();
