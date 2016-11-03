@@ -1,11 +1,13 @@
 ﻿(function () {
 	var timeFilter = function () {
-		return function(time){
+		return function (time) {
 			var date = new Date(time);
-			var formatedtime = "[" + date.getHours() + ":" + date.getMinutes() + "]";
+			var formatedtime = "[" + ("0" + date.getHours()).slice(-2) + ":" +
+					("0" + date.getMinutes()).slice(-2) + ":" +
+					("0" + date.getSeconds()).slice(-2) + "] ";
 			return formatedtime;
-		}
+		};
 	};
 	var module = angular.module("lerniaChat");
-	module.filter("timeFilter", ["time",timeFilter]);
+	module.filter("time", [timeFilter]);
 })();
