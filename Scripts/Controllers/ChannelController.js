@@ -8,6 +8,20 @@
 		$scope.activeChannel = null;
 		$scope.author = null;
 		$scope.body = null;
+		$scope.chatHub = null;
+		$scope.chatHub = $.connection.chatHub;
+		$.connection.hub.url = "http://dummyapi.kodalagom.se/signalR";
+		console.log($.connection.hub);
+		$scope.chatHub.client.recieveMessage =function (message) {
+			console.log(message);
+			if (message.channelId === $scope.activeChannel) {
+				$scope.messages.push(message);
+				$scope.$apply();
+			}
+		};
+		$.connection.hub.start().done(function () { console.log("derp"); });
+		console.log($scope.chatHub);
+
 
 		var onChannelLoad = function (response) {
 			$scope.channels = response;
@@ -32,6 +46,9 @@
 				.then(function (response) {
 					$scope.activeChannel = id;
 					$scope.messages = response.messages;
+					$scope.messages.sort(function (a, b) {
+						return new Date(b.date) - new Date(a.date);
+					});
 				});
 		};
 		$scope.addChannel = function(name) {
@@ -53,13 +70,7 @@
 					$scope.body = null;
 				});
 		};
-		$scope.formatTime = function (time) {
-			var date = new Date(time);
-			var formatedtime = "["+date.getHours() + ":" + date.getMinutes()+"]";
-			return formatedtime;
-		};
 		poll();
-
 
 	};
 	app.controller("ChannelController", ["$scope","repository","$interval","$filter", channelController]);

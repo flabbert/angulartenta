@@ -1,6 +1,7 @@
 ﻿(function() {
 	var repository = function ($http) {
 		var repositoryurl = "http://dummyapi.kodalagom.se/api/";
+		var favoritelist = [];
 		var getAllChannels = function() {
 			return $http.get("http://dummyapi.kodalagom.se/api/channels")
 				.then(function(response) {
@@ -42,6 +43,25 @@
 				.then(function (response) {
 					return response.data;
 				});
+		};
+		var setFavorite = function (id) {
+			favoritelist.push(id);
+		};
+		var checkIfFavorive = function (id) {
+			var count = favoritelist.length();
+			for (var i = 0; i < count; i++) {
+				if(favoritelist[i]===id)
+				{
+					return true;
+				}
+				return false;
+			}
+		};
+		var unSetFavorite = function (id) {
+			var index = favoritelist.indexOf(id);
+			if (index > -1) {
+				favoritelist.splice(index, 1);
+			}
 		};
 		return {
 			getAllChannels: getAllChannels,
