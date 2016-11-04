@@ -11,7 +11,6 @@
 		$scope.chatHub = null;
 		$scope.chatHub = $.connection.chatHub;
 		$.connection.hub.url = "http://dummyapi.kodalagom.se/signalR";
-		console.log($.connection.hub);
 		$scope.chatHub.client.recieveMessage =function (message) {
 			console.log(message);
 			if (message.channelId === $scope.activeChannel) {
@@ -19,8 +18,7 @@
 				$scope.$apply();
 			}
 		};
-		$.connection.hub.start().done(function () { console.log("derp"); });
-		console.log($scope.chatHub);
+		$.connection.hub.start().done(function () {  });
 
 
 		var onChannelLoad = function (response) {
@@ -46,6 +44,7 @@
 				.then(function (response) {
 					$scope.activeChannel = id;
 					$scope.messages = response.messages;
+					console.log($scope.messages);
 					$scope.messages.sort(function (a, b) {
 						return new Date(b.date) - new Date(a.date);
 					});
