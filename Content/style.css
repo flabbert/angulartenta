@@ -17,3 +17,22 @@
 	clear:both;
 	float:left;
 }
+.channelbutton{
+	margin: 3px;
+	display:flex;
+	justify-content:flex-start;
+	align-content:space-around;
+	width:300px;
+}
+.trashcan{
+	height:300px;
+	width: 300px;
+	float: right;
+	margin-right:200px;
+}
+.favorite{
+	height:400px;
+	width:400px;
+	float:right;
+	margin-right:200px;
+}

@@ -47,7 +47,7 @@
 		var setFavorite = function (id) {
 			favoritelist.push(id);
 		};
-		var checkIfFavorive = function (id) {
+		var checkFavorive = function (id) {
 			var count = favoritelist.length();
 			for (var i = 0; i < count; i++) {
 				if(favoritelist[i]===id)
@@ -68,7 +68,10 @@
 			getMessages: getMessages,
 			addChannel: addChannel,
 			deleteChannel: deleteChannel,
-			addMessage : addMessage
+			addMessage: addMessage,
+			checkFavorive: checkFavorive,
+			unSetFavorite: unSetFavorite,
+			setFavorite : setFavorite
 		};
 	};
 	var module = angular.module("lerniaChat");
