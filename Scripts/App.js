@@ -1,5 +1,5 @@
 ﻿(function () {
-	var app = angular.module("lerniaChat", ["ngRoute"]);
+	var app = angular.module("lerniaChat", ["ngRoute","ngDragDrop"]);
 
 	app.config(function ($routeProvider) {
 		$routeProvider
