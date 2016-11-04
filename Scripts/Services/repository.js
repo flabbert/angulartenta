@@ -54,13 +54,11 @@
 				{
 					return true;
 				}
-				console.log("it does not match");
 			}
 			return false;
 		};
 		var unSetFavorite = function (id) {
 			var index = favoritelist.indexOf(id);
-			console.log(index);
 			if (index > -1) {
 				favoritelist.splice(index, 1);
 			}
@@ -77,6 +75,5 @@
 		};
 	};
 	var module = angular.module("lerniaChat");
-  console.log(module);
 	module.factory("repository", ["$http", repository]);
 }());

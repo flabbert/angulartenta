@@ -12,7 +12,6 @@
 		$scope.chatHub = $.connection.chatHub;
 		$.connection.hub.url = "http://dummyapi.kodalagom.se/signalR";
 		$scope.chatHub.client.recieveMessage =function (message) {
-			console.log(message);
 			if (message.channelId === $scope.activeChannel) {
 				$scope.messages.push(message);
 				$scope.$apply();
@@ -44,7 +43,6 @@
 				.then(function (response) {
 					$scope.activeChannel = id;
 					$scope.messages = response.messages;
-					console.log($scope.messages);
 				});
 		};
 		$scope.addChannel = function(name) {
