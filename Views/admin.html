@@ -1,7 +1,7 @@
-﻿<div class="container col-lg-12">
-	<div class="col-md-6 adminbox">
+﻿<div class="container col-lg-6 col-sm-12 channelpage">
+	<div class="col-lg-8 adminbox">
 		<div class="admininnerbox">
-			<h1>Rest</h1>
+			<h4>Channels</h4>
 			<ul data-drop="true" jqyoui-droppable="{onDrop: 'removeFavorite' }" ng-model="remFav" class="thumbnail" style="min-height:50px;">
 				<li class="btn btn-primary channelbutton" data-drag="true" ng-model="channel" data-jqyoui-options="{revert: 'invalid'}" jqyoui-draggable ng-repeat="channel in channels track by channel.id" ng-show="!checkFavorite(channel.id)">
 					{{channel.name}}
@@ -13,8 +13,9 @@
 			</ul data-drop="true">
 		</div>
 		<div class="admininnerbox">
-			<h1>Favorites</h1>
-			<ul data-drop="true" jqyoui-droppable="{onDrop: 'addFavorite' }" ng-model="addFav" class="thumbnail" style="min-height:50px">
+			<h4>Favorites</h4>
+            <p>Drag your favourite channels here</p>
+			<ul data-drop="true" jqyoui-droppable="{onDrop: 'addFavorite' }" ng-model="addFav" class="thumbnail fav" style="min-height:50px">
 				<li class="btn btn-default channelbutton" data-drag="true" ng-model="channel" data-jqyoui-options="{revert: 'invalid'}" jqyoui-draggable ng-repeat="channel in channels track by channel.id" ng-show="checkFavorite(channel.id)">
 					{{channel.name}}
 					<ul class="optionsbuttons">
@@ -27,5 +28,7 @@
 
 		
 	</div>
-	<img src="http://www.pngall.com/wp-content/uploads/2016/06/Trash-Can-Free-PNG-Image.png" class="col-md-4" ng-model="drop" data-drop="true" jqyoui-droppable="{onDrop: 'spawnofdarkness' }" />
+    <div class="deletebin col-lg-4">
+        <img src="http://www.pngall.com/wp-content/uploads/2016/06/Trash-Can-Free-PNG-Image.png" ng-model="drop" data-drop="true" jqyoui-droppable="{onDrop: 'spawnofdarkness' }" />
+    </div>
 </div>

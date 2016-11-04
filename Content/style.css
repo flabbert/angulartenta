@@ -1,4 +1,22 @@
-﻿h1{
+﻿@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+.container {
+    text-align:center;
+    margin:0 auto;
+    float:none;
+    background-color:#ecf2f5;
+    border-left:1px #f8f8f8 solid ;
+    border-right:1px #f8f8f8 solid;
+}
+.channelpage{margin-top:50px;padding:20px 0;}
+.deletebin {
+    padding:75px 5%;
+}
+.deletebin img{width:100%;height:auto;}
+
+h1{
 	margin-left:40px;
 }
 .chat{
@@ -6,11 +24,11 @@
 
 }
 .chatbox{
-	border-color:black;
-	border-style:solid;
-	border-width:1px;
-	height:800px;
+	border:1px #ccc solid;
+    border-top:0;
+    height:800px;
 	position:relative;
+    background:#f8f8f8;
 }
 .channellist{
 	margin-bottom:20px;
@@ -18,12 +36,36 @@
 .addchannel{
 	clear:both;
 	float:left;
+    width:100%;
+    margin-top:40px;
+}
+ul.list-group{
+
+}
+ul.list-group li{
+    min-height:30px;
+    line-height:30px;
+    padding:0 5px;
+    margin:0;
+    margin-bottom:5px;
+    background: #4398c6;
+    color:#fff;
+background: -moz-linear-gradient(top,  #4398c6 0%, #0081c6 100%);
+background: -webkit-linear-gradient(top,  #4398c6 0%,#0081c6 100%);
+background: linear-gradient(to bottom,  #4398c6 0%,#0081c6 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4398c6', endColorstr='#0081c6',GradientType=0 );
+}
+.addchannel .btn-success{
+	float:left;
+    margin-top:10px;
+    width:100%;
 }
 .channelbutton{
-	margin: 3px;
+	margin:0 auto;
+    margin-bottom:5px;
 	display:flex;
 	justify-content:space-between;
-	width:300px;
+	width:96%;
 }
 .trashcan{
 	height:300px;
@@ -54,7 +96,29 @@
 	display:flex;
 	align-content:flex-start;
 	flex-direction:column;
+    padding:3%;
 }
-.admininnerbox{
+.admininnerbox h4{
+  text-align:center;
+  text-transform:uppercase;
+  font-weight:500;
+  width:100%;
+
+    
+}
+.btn {
+    border-radius: 0;
+}
+.btn-primary{
+background: #4398c6;
+background: -moz-linear-gradient(top,  #4398c6 0%, #0081c6 100%);
+background: -webkit-linear-gradient(top,  #4398c6 0%,#0081c6 100%);
+background: linear-gradient(to bottom,  #4398c6 0%,#0081c6 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4398c6', endColorstr='#0081c6',GradientType=0 );
 
 }
+ul.thumbnail{width:100%;padding:2%;border:0;border-radius:0;background-color:#ecf2f5;}
+ul.fav{background-color:#fff;}
+ul.thumbnail li.channelbutton{width:100%;}
+
+.newmessageinput{width:100%;padding:10px; background-color:#003f61;}

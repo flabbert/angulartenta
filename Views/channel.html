@@ -1,18 +1,19 @@
 ﻿<div>
+    
 	<div class="col-md-2 channellist">
 		<ul class="list-group " style="list-style-type:none ">
 			<li ng-repeat="channel in channels" ng-show="checkFavorite(channel.id)" ng-click="getMessages(channel.id)" class="list-group-item col-md-12 chatlistfavorite {{checkActive(channel.id)}}">
-				<div class="col-md-10" style="float: left; height: 10px;">{{channel.name}}</div>
+				<div class="" style="float: left; height: 10px;">{{channel.name}}</div>
 				<div class="glyphicon glyphicon-ice-lolly" style="margin-left: auto"></div>
 			</li>
 		</ul>
 		<ul class="list-group " style="list-style-type:none ">
 			<li  ng-repeat="channel in channels" ng-hide="checkFavorite(channel.id)" ng-click="getMessages(channel.id)" class="list-group-item col-md-12 chatlistitem {{checkActive(channel.id)}}">
-				<div class="col-md-10" style="float: left; height: 10px; ">{{channel.name}}</div>
+				<div class="" style="float: left; height: 10px; ">{{channel.name}}</div>
 			</li>
 		</ul>
 		<form name="addchannel" class="addchannel" ng-submit="addChannel(name)">
-			<input type="text" required placeholder="Add Channel" ng-model="name" />
+			<input type="text" style="width:100%;" required placeholder="Add Channel" ng-model="name" />
 			<input type="submit" value="Add Channel" class="btn-sm btn-success"/>
 		</form>
 	</div>
@@ -27,10 +28,10 @@
 				</tbody>
 			</table>
 		</div>
-		<form style="float:left" class="col-md-12" ng-show="activeChannel" name="addmessage" ng-submit="addMessage(activeChannel,author,body)">
-			<input type="text" required placeholder="Author" class="col-md-2" ng-model="author" />
-			<input type="text" required placeholder="body" class="col-md-8" ng-model="body" />
-			<input type="submit" value="Add Message" class="btn-sm btn-default"/>
+		<form style="float:left" class="col-md-12 newmessageinput" ng-show="activeChannel" name="addmessage" ng-submit="addMessage(activeChannel,author,body)">
+			<input type="text" required placeholder="Author" style="width:20%;" ng-model="author" />
+			<input type="text" required placeholder="Message" style="width:70%;" ng-model="body" />
+			<input type="submit" value="Add Message" style="width:8%;" class="btn btn-primary"/>
 		</form>
 		</div>
 
