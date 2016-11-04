@@ -1,4 +1,7 @@
-﻿.chat{
+﻿h1{
+	margin-left:40px;
+}
+.chat{
 	vertical-align:bottom;
 
 }
@@ -13,15 +16,13 @@
 	margin-bottom:20px;
 }
 .addchannel{
-	margin-top:20;
 	clear:both;
 	float:left;
 }
 .channelbutton{
 	margin: 3px;
 	display:flex;
-	justify-content:flex-start;
-	align-content:space-around;
+	justify-content:space-between;
 	width:300px;
 }
 .trashcan{
@@ -35,4 +36,28 @@
 	width:400px;
 	float:right;
 	margin-right:200px;
+}
+.chatlistitem{
+	height:25px;
+	padding: 0;
+	cursor:pointer;
+}
+.chatlistfavorite{
+	display:flex;
+	justify-content:space-between;
+	height:25px;
+	padding: 0;
+	cursor:pointer;
+	background-color:coral;
+}
+.optionsbuttons{
+	list-style-type:none
+}
+.adminbox{
+	display:flex;
+	align-content:flex-start;
+	flex-direction:column;
+}
+.admininnerbox{
+
 }

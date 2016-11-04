@@ -1,14 +1,19 @@
 ﻿<div>
 	<div class="col-md-2 channellist">
 		<ul class="list-group " style="list-style-type:none ">
-			<li class="list-group-item col-md-12" style="height:25px;padding: 0" ng-repeat="channel in channels">
-				<div class="col-md-10" style="float: left; height: 10px; cursor:pointer" ng-click="getMessages(channel.id)">{{channel.name}}</div>
-				<div class="btn-xs btn-danger glyphicon glyphicon-trash" style="float: right; cursor: pointer" ng-click="deleteChannel(channel.id)"></div>
+			<li ng-repeat="channel in channels" ng-show="checkFavorite(channel.id)" ng-click="getMessages(channel.id)" class="list-group-item col-md-12 chatlistfavorite {{checkActive(channel.id)}}">
+				<div class="col-md-10" style="float: left; height: 10px;">{{channel.name}}</div>
+				<div class="glyphicon glyphicon-ice-lolly" style="margin-left: auto"></div>
+			</li>
+		</ul>
+		<ul class="list-group " style="list-style-type:none ">
+			<li  ng-repeat="channel in channels" ng-hide="checkFavorite(channel.id)" ng-click="getMessages(channel.id)" class="list-group-item col-md-12 chatlistitem {{checkActive(channel.id)}}">
+				<div class="col-md-10" style="float: left; height: 10px; ">{{channel.name}}</div>
 			</li>
 		</ul>
 		<form name="addchannel" class="addchannel" ng-submit="addChannel(name)">
 			<input type="text" required placeholder="Add Channel" ng-model="name" />
-			<input type="submit" value="Add Channel" />
+			<input type="submit" value="Add Channel" class="btn-sm btn-success"/>
 		</form>
 	</div>
 
@@ -25,7 +30,7 @@
 		<form style="float:left" class="col-md-12" ng-show="activeChannel" name="addmessage" ng-submit="addMessage(activeChannel,author,body)">
 			<input type="text" required placeholder="Author" class="col-md-2" ng-model="author" />
 			<input type="text" required placeholder="body" class="col-md-8" ng-model="body" />
-			<input type="submit" value="Add Message" />
+			<input type="submit" value="Add Message" class="btn-sm btn-default"/>
 		</form>
 		</div>
 

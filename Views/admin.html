@@ -1,11 +1,30 @@
 ﻿<div class="container col-lg-12">
-	<div class="col-lg-2">
-		<button type="button" class="btn-lg btn-primary channelbutton" ng-repeat="channel in channels">{{channel.name}}</button> 
-	</div>
-	<div class="col-col-md-6 trashcan btn-danger">
-		trashcan
-	</div>
-	<div class="col-col-md-6 favorite btn-warning">
-		favorite
+	<div class="col-md-6 adminbox" style="">
+		<div class="admininnerbox">
+			<h1>Rest</h1>
+			<ul>
+				<li class="btn btn-primary channelbutton" ng-repeat="channel in channels track by channel.id" ng-show="!checkFavorite(channel.id)">
+					{{channel.name}}
+					<ul class="optionsbuttons">
+						<li class="btn-xs btn-success glyphicon glyphicon-plus" ng-click="setFavorite(channel.id)"></li>
+						<li class="btn-xs btn-danger glyphicon glyphicon-trash" ng-click="deleteChannel(channel.id)"></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="admininnerbox">
+			<h1>Favorites</h1>
+			<ul>
+				<li class="btn btn-default channelbutton" ng-repeat="channel in channels track by channel.id" ng-show="checkFavorite(channel.id)">
+					{{channel.name}}
+					<ul class="optionsbuttons">
+						<li class="btn-xs btn-warning glyphicon glyphicon-minus" ng-click="unSetFavorite(channel.id)"></li>
+						<li class="btn-xs btn-danger glyphicon glyphicon-trash" ng-click="deleteChannel(channel.id)"></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+		
 	</div>
 </div>

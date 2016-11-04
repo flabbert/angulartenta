@@ -45,21 +45,12 @@
 					$scope.activeChannel = id;
 					$scope.messages = response.messages;
 					console.log($scope.messages);
-					$scope.messages.sort(function (a, b) {
-						return new Date(b.date) - new Date(a.date);
-					});
 				});
 		};
 		$scope.addChannel = function(name) {
 			repository.addChannel(name).then(function(){
 				getAllChannels();
 			});
-		};
-		$scope.deleteChannel = function(id) {
-			repository.deleteChannel(id)
-			.then(function() {
-				getAllChannels();
-				});
 		};
 		$scope.addMessage = function(id, author, body) {
 			repository.addMessage(id, author, body)
@@ -68,6 +59,14 @@
 					$scope.getMessages(id);
 					$scope.body = null;
 				});
+		};
+		$scope.checkFavorite = function (id) {
+			return repository.checkFavorite(id);
+		};
+		$scope.checkActive = function(id){
+			if (id == $scope.activeChannel) {
+				return "active";
+			}
 		};
 		poll();
 

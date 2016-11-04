@@ -47,18 +47,20 @@
 		var setFavorite = function (id) {
 			favoritelist.push(id);
 		};
-		var checkFavorive = function (id) {
-			var count = favoritelist.length();
+		var checkFavorite = function (id) {
+			var count = favoritelist.length;
 			for (var i = 0; i < count; i++) {
 				if(favoritelist[i]===id)
 				{
 					return true;
 				}
-				return false;
+				console.log("it does not match");
 			}
+			return false;
 		};
 		var unSetFavorite = function (id) {
 			var index = favoritelist.indexOf(id);
+			console.log(index);
 			if (index > -1) {
 				favoritelist.splice(index, 1);
 			}
@@ -69,7 +71,7 @@
 			addChannel: addChannel,
 			deleteChannel: deleteChannel,
 			addMessage: addMessage,
-			checkFavorive: checkFavorive,
+			checkFavorite: checkFavorite,
 			unSetFavorite: unSetFavorite,
 			setFavorite : setFavorite
 		};
